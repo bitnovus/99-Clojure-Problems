@@ -23,7 +23,7 @@
 
 ;; p6 - Find out whether a list is a palindrome.
 (defn palindrome? [input]
- (= input (reverse input)))
+ (= input (my-reverse input)))
 
 ;; p7 - Flatten a nested list structure.
 ;; Transform a list, possibly holding lists as elements into a `flat' list by replacing each list with its elements (recursively).
@@ -39,6 +39,6 @@
 
 (defn -main [& args]
  (do 
-  (println (my-reverse '(1 2 3 4 5)))))
+  (println (my-palindrome '(1 2 3 4 5)))))
 
 (-main [])
