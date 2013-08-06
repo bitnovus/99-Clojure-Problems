@@ -15,11 +15,11 @@
 
 ;; p4 - Find the number of elements of a list.
 (defn my-count [input]
- (count input))
+ (reduce (fn [cur-val ret-val] (inc cur-val)) 0 input))
 
 ;; p5 - Reverse a list.
 (defn my-reverse [input]
- (reverse input))
+ (reduce (fn [cur-val ret-val] (conj cur-val ret-val)) () input))
 
 ;; p6 - Find out whether a list is a palindrome.
 (defn palindrome? [input]
@@ -39,6 +39,6 @@
 
 (defn -main [& args]
  (do 
-  (println (last-two '(1 2 3 4 5)))))
+  (println (my-reverse '(1 2 3 4 5)))))
 
 (-main [])
