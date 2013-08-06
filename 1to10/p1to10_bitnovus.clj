@@ -14,7 +14,10 @@
 
 ;; p3 - Find the K'th element of a list.
 (defn element-at [input k]
-    (nth input (- k 1)))
+    (loop [cur-list input index k]
+        (if (= index 1)
+            (peek cur-list)
+            (recur (pop cur-list) (dec index)))))
 
 ;; p4 - Find the number of elements of a list.
 (defn my-count [input]
@@ -42,7 +45,6 @@
 
 (defn -main [& args]
     (do 
-    (println (my-last '(1 2 3 4))))
-    (println (last_two '(1 2 3 4))))
+    (println (element-at '(1 2 3 4) 4))))
 
 (-main [])
