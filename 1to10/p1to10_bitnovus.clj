@@ -37,8 +37,12 @@
  (let [start-result []]
   (flatten-append input start-result)))
 
+;; p8 - Eliminate consecutive duplicates of list elements.
+(defn my-compress [input]
+ (reduce (fn [cur-val ret-val] (if (not= (peek cur-val) ret-val) (conj cur-val ret-val) cur-val)) [] input))
+
 (defn -main [& args]
  (do 
-  (println (my-palindrome '(1 2 3 4 5)))))
+  (println (my-compress '(1 1 1 1 2 2 2 3 4 5 5 5 4 3 2 2 1)))))
 
 (-main [])
