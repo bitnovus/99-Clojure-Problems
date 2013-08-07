@@ -41,8 +41,15 @@
 (defn my-compress [input]
  (reduce (fn [cur-val ret-val] (if (not= (peek cur-val) ret-val) (conj cur-val ret-val) cur-val)) [] input))
 
+;; p9 - Pack consecutive duplicates of list elements into sublists.
+(defn my-pack [input]
+ (reduce (fn [cur-val ret-val] 
+          (if (= (peek (peek cur-val)) ret-val) 
+           (conj (pop cur-val) (conj (peek cur-val) ret-val)) 
+           (conj cur-val [ret-val]))) [] input))
+
 (defn -main [& args]
  (do 
-  (println (my-compress '(1 1 1 1 2 2 2 3 4 5 5 5 4 3 2 2 1)))))
+  (println (my-pack '(1 1 1 1 2 2 2 3 4 5 5 5 4 3 2 2 1)))))
 
 (-main [])
